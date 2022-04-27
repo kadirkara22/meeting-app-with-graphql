@@ -1,0 +1,12 @@
+actions:
+  - name: register
+    definition:
+      kind: synchronous
+      handler: '{{ACTION_BASE_ENDPOINT}}/auth/register'
+custom_types:
+  enums: []
+  input_objects:
+    - name: RegisterInput
+  objects:
+    - name: RegisterOutput
+  scalars: []

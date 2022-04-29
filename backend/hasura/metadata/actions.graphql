@@ -1,4 +1,14 @@
 type Mutation {
+  login(
+    data: LoginInput!
+  ): LoginOutput!
+}
+
+type Query {
+  me: MeOutput
+}
+
+type Mutation {
   register(
     data: RegisterInput!
   ): RegisterOutput!
@@ -11,7 +21,20 @@ input RegisterInput {
   surname: String!
 }
 
+input LoginInput {
+  email: String!
+  password: String!
+}
+
 type RegisterOutput {
   accessToken: String!
+}
+
+type LoginOutput {
+  accessToken: String!
+}
+
+type MeOutput {
+  user_id: String!
 }
 

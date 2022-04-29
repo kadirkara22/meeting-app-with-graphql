@@ -11,7 +11,16 @@ mutation insertUser($input:users_insert_input!) {
     insert_users_one(
       object: $input){
       id
-      name
+      email
     }
   }
+`
+export const LOGIN_QUERY = `
+query Login($email: String!) {
+  users(where: {email: {_eq: $email}}, limit: 1) {
+    id
+    email
+    password
+  }
+}
 `

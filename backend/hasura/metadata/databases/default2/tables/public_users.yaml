@@ -9,3 +9,27 @@ array_relationships:
         table:
           schema: public
           name: meetings
+computed_fields:
+  - name: fullName
+    definition:
+      function:
+        schema: public
+        name: user_full_name
+insert_permissions:
+  - role: user
+    permission:
+      check: {}
+      columns: []
+      backend_only: false
+select_permissions:
+  - role: user
+    permission:
+      columns:
+        - email
+        - id
+        - name
+        - surname
+      computed_fields:
+        - fullName
+      filter: {}
+      allow_aggregations: true

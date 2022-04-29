@@ -13,6 +13,18 @@ array_relationships:
         table:
           schema: public
           name: participants
+insert_permissions:
+  - role: user
+    permission:
+      check:
+        user_id:
+          _eq: X-Hasura-User-Id
+      set:
+        user_id: x-hasura-user-id
+      columns:
+        - meeting_date
+        - title
+      backend_only: false
 select_permissions:
   - role: user
     permission:
